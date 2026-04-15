@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B0E0E6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4682B4;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2F4F4F;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Cielo -->
+  <rect width="800" height="300" fill="url(#skyGrad)"/>
+
+  <!-- Agua -->
+  <rect y="300" width="800" height="200" fill="url(#waterGrad)"/>
+
+  <!-- Ondas en el agua -->
+  <path d="M 0 320 Q 50 315, 100 320 T 200 320 T 300 320 T 400 320 T 500 320 T 600 320 T 700 320 T 800 320"
+        stroke="#5F9EA0" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M 0 350 Q 50 345, 100 350 T 200 350 T 300 350 T 400 350 T 500 350 T 600 350 T 700 350 T 800 350"
+        stroke="#5F9EA0" stroke-width="2" fill="none" opacity="0.4"/>
+
+  <!-- Palafito 1 (izquierda) -->
+  <g id="palafito1">
+    <!-- Pilotes -->
+    <rect x="100" y="280" width="8" height="120" fill="#654321"/>
+    <rect x="150" y="285" width="8" height="115" fill="#654321"/>
+    <rect x="200" y="280" width="8" height="120" fill="#654321"/>
+    <rect x="250" y="285" width="8" height="115" fill="#654321"/>
+
+    <!-- Piso -->
+    <rect x="95" y="270" width="165" height="15" fill="#8B4513"/>
+
+    <!-- Paredes -->
+    <rect x="100" y="200" width="155" height="70" fill="#D2691E"/>
+
+    <!-- Techo de palma -->
+    <path d="M 90 200 L 175 150 L 260 200 Z" fill="#8B7355"/>
+    <path d="M 95 195 L 175 155 L 255 195 Z" fill="#A0826D"/>
+
+    <!-- Líneas del techo (simular palma) -->
+    <line x1="175" y1="155" x2="100" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="120" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="140" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="160" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="190" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="210" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="230" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="175" y1="155" x2="250" y2="195" stroke="#654321" stroke-width="1" opacity="0.3"/>
+
+    <!-- Ventana -->
+    <rect x="130" y="220" width="30" height="30" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+    <line x1="145" y1="220" x2="145" y2="250" stroke="#654321" stroke-width="2"/>
+    <line x1="130" y1="235" x2="160" y2="235" stroke="#654321" stroke-width="2"/>
+
+    <!-- Puerta -->
+    <rect x="190" y="230" width="35" height="40" fill="#654321"/>
+  </g>
+
+  <!-- Palafito 2 (centro) -->
+  <g id="palafito2">
+    <!-- Pilotes -->
+    <rect x="350" y="290" width="8" height="110" fill="#654321"/>
+    <rect x="400" y="295" width="8" height="105" fill="#654321"/>
+    <rect x="450" y="290" width="8" height="110" fill="#654321"/>
+    <rect x="500" y="295" width="8" height="105" fill="#654321"/>
+
+    <!-- Piso -->
+    <rect x="345" y="280" width="165" height="15" fill="#8B4513"/>
+
+    <!-- Paredes -->
+    <rect x="350" y="210" width="155" height="70" fill="#CD853F"/>
+
+    <!-- Techo -->
+    <path d="M 340 210 L 425 160 L 510 210 Z" fill="#8B7355"/>
+    <path d="M 345 205 L 425 165 L 505 205 Z" fill="#A0826D"/>
+
+    <!-- Líneas del techo -->
+    <line x1="425" y1="165" x2="350" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="370" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="390" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="410" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="440" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="460" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="480" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+    <line x1="425" y1="165" x2="500" y2="205" stroke="#654321" stroke-width="1" opacity="0.3"/>
+
+    <!-- Ventana -->
+    <rect x="380" y="230" width="30" height="30" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+
+    <!-- Puerta -->
+    <rect x="440" y="240" width="35" height="40" fill="#654321"/>
+  </g>
+
+  <!-- Palafito 3 (derecha, más pequeño - fondo) -->
+  <g id="palafito3">
+    <!-- Pilotes -->
+    <rect x="600" y="295" width="6" height="90" fill="#654321" opacity="0.8"/>
+    <rect x="640" y="298" width="6" height="87" fill="#654321" opacity="0.8"/>
+    <rect x="680" y="295" width="6" height="90" fill="#654321" opacity="0.8"/>
+
+    <!-- Piso -->
+    <rect x="596" y="288" width="90" height="12" fill="#8B4513" opacity="0.8"/>
+
+    <!-- Paredes -->
+    <rect x="600" y="235" width="85" height="53" fill="#D2691E" opacity="0.8"/>
+
+    <!-- Techo -->
+    <path d="M 593 235 L 642 200 L 688 235 Z" fill="#8B7355" opacity="0.8"/>
+
+    <!-- Puerta pequeña -->
+    <rect x="620" y="255" width="25" height="33" fill="#654321" opacity="0.8"/>
+  </g>
+
+  <!-- Curiara (canoa) -->
+  <g id="canoa">
+    <ellipse cx="300" cy="370" rx="60" ry="12" fill="#654321"/>
+    <ellipse cx="300" cy="368" rx="58" ry="10" fill="#8B4513"/>
+    <rect x="298" y="350" width="4" height="18" fill="#654321"/>
+  </g>
+
+  <!-- Vegetación -->
+  <ellipse cx="50" cy="310" rx="30" ry="20" fill="#228B22" opacity="0.6"/>
+  <ellipse cx="750" cy="315" rx="35" ry="22" fill="#2E8B57" opacity="0.6"/>
+
+  <!-- Texto -->
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="22" font-weight="bold"
+        text-anchor="middle" fill="#fff" opacity="0.9">Palafitos Warao</text>
+</svg>

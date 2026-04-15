@@ -1,0 +1,28 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.swp
+*~
+~$*
+
+# Claves y credenciales (importante!)
+*.key
+*.pem
+gemini_key.json
+credentials.json
+.env
+
+# Archivos de editores
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+
+# Archivos de respaldo
+*.bak
+*.backup

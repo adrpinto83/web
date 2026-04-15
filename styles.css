@@ -1,0 +1,636 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+:root {
+    --primary-dark: #004d40;
+    --primary: #00796b;
+    --primary-light: #e0f2f1;
+    --secondary: #1e88e5;
+    --secondary-dark: #0d47a1;
+    --accent: #66bb6a;
+    --text-dark: #212121;
+    --text-light: #f5f5f5;
+    --background: #f5f5f5;
+    --card-bg: #ffffff;
+    --shadow: rgba(0,0,0,0.1);
+    --shadow-hover: rgba(0,0,0,0.2);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text-dark);
+}
+
+/* --- Typography & General --- */
+h1, h2, h3, h4 {
+    font-family: 'Lora', serif;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+h1 { font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+h2 { font-size: 2.5rem; margin-top: 40px; border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+h3 { font-size: 1.8rem; }
+p { font-size: 1.1rem; }
+a { color: var(--primary); text-decoration: none; }
+
+section {
+    padding: 80px 40px;
+    margin: 0 auto;
+    max-width: 1600px;
+    overflow: hidden;
+}
+
+section.section-dark {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    color: var(--text-light);
+    margin-left: 0;
+    margin-right: 0;
+    padding: 80px 40px;
+    max-width: 100%;
+}
+
+section.section-dark > * {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.section-dark h2,
+section.section-dark h3,
+section.section-dark h4 {
+    color: var(--text-light);
+    border-color: var(--accent);
+}
+
+section.section-highlight {
+    background: var(--primary-light);
+    margin-left: 0;
+    margin-right: 0;
+    padding: 80px 40px;
+    max-width: 100%;
+}
+
+section.section-highlight > * {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* --- Header & Hero Image (mejorado) --- */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    overflow: hidden;
+    padding: 40px 20px;
+    background-color: var(--primary-dark); /* fallback */
+}
+
+/* fondo: imagen + suave ajuste de brillo/contraste para legibilidad */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/delta-orinoco.png');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.55) contrast(1.02);
+    transform: scale(1.02);
+    z-index: -3;
+}
+
+/* capa de atenuación suave, mantiene contraste sin oscurecer demasiado */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.40));
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* contenedor central del hero */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+    padding: 12px;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* logo: menos contraste fuerte, sombra más sutil */
+.hero-logo {
+    width: 140px;
+    height: 140px;
+    background: rgba(255,255,255,0.06);
+    padding: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.32);
+    margin-bottom: 18px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+    animation: float 4s ease-in-out infinite;
+}
+
+/* textos con fondo sutil y sombra ligera para mejorar legibilidad */
+.hero-content h1,
+.hero-subtitle,
+.hero-description {
+    display: inline-block;
+    background: rgba(0,0,0,0.22);
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.30);
+    backdrop-filter: blur(3px);
+    max-width: 100%;
+    color: var(--text-light);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* tamaños y espaciado más equilibrados */
+.hero-subtitle {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin: 8px 0;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 12px auto 0;
+    line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* --- Layout Components --- */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.two-column img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* --- Image Gallery --- */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* --- Gallery Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+}
+
+#modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #modal-caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* --- Scroll Animations --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Lists and Info Styles --- */
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 8px 0 8px 30px;
+    position: relative;
+}
+
+.info-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+section.section-dark .info-list li::before {
+    color: var(--accent);
+}
+
+.flag-image {
+    border: 3px solid var(--primary);
+    padding: 10px;
+    background: white;
+}
+
+.image-caption,
+.gallery-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.rounded-image {
+    border-radius: 12px;
+}
+
+/* --- Gastronomy Section --- */
+.gastro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.gastro-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gastro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.gastro-card h3 {
+    color: var(--primary);
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+/* --- Biodiversity Section --- */
+.biodiversity-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent);
+    font-family: 'Lora', serif;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.fauna-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.fauna-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.fauna-card h4 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.ecosystem-info {
+    margin-top: 50px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border-left: 5px solid var(--accent);
+}
+
+/* --- Tourism Section --- */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.activity-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border-left: 4px solid var(--secondary);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.activity-card h4 {
+    color: var(--secondary);
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+/* --- Project Section --- */
+.project-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.school-logo {
+    text-align: center;
+}
+
+.logo-placeholder {
+    background: var(--primary);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.project-details h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+}
+
+.project-dedication {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+/* --- QR Code Section --- */
+.qr-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.qr-code {
+    max-width: 300px;
+    height: auto;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.qr-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* --- Footer --- */
+footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #003329 100%);
+    color: var(--text-light);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 20px;
+}
+
+.footer-section h4 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.footer-section ul li {
+    padding: 5px 0;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 40px;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+    p { font-size: 1rem; }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    section.section-dark,
+    section.section-highlight {
+        padding: 50px 20px;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gastro-grid,
+    .biodiversity-stats,
+    .fauna-grid,
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-info {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .qr-code {
+        max-width: 250px;
+    }
+}
